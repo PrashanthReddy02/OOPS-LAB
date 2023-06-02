@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+#define size 5
+class stack
+{
+	int stack[size];
+	int tos;
+	public:
+		void init();
+		void push();
+		int pop();
+		void display();
+};
+void stack::init()
+{
+	tos=0;
+}
+void stack::push()
+{
+	int i;
+	if(tos==size)
+	{
+		cout<<"stack overflow\n";
+		return;
+	}
+	cout<<"enter element\n";
+	cin>>i;
+	stack[tos]=i;
+	tos++;
+}
+int stack::pop()
+{
+	if(tos==0)
+	{
+		cout<<"stack underflow\n";
+		return 1;
+	}
+	tos--;
+	cout<<"popped element is "<<stack[tos];
+	return 0;
+}
+void stack::display()
+{
+	if(tos==0)
+	{
+		cout<<"sttack empty\n";
+		return;
+	}
+	for(int i=0;i<tos;i++)
+	{
+		cout<<stack[i]<<"\n";
+	}
+}
+int main()
+{
+	int ch,i;
+	stack s;
+	s.init();
+	while(1)
+	{
+		cout<<"\n1.push 2.pop 3.display\n";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: s.push();
+			break;
+			case 2:s.pop();
+			break;
+			case 3:s.display();
+			break;
+			default: return 0;
+		}
+	}
+}
+
+		
